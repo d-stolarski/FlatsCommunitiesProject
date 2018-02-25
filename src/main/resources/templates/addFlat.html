@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dodawanie mieszkania</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>Dodawanie mieszkania</h2>
+
+<form action="#" th:action="@{/flats/add}" th:object="${flat}" method="post">
+    Numer: <br/><input type="number" th:field="*{number}" /> <br/><br/>
+    Powierzchnia: <br/><input type="text" th:field="*{area}" />m2 <br/><br/>
+    Id wspólnoty: <br/><input type="text" th:field="*{community}" /> <br/><br/>
+    <input type="submit" value="Dodaj" />
+</form>
+<br/>
+<a href="/">Strona główna</a>
+</body>
+</html>

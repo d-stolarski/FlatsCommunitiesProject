@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Edycja mieszkania</title>
+</head>
+<body>
+<h2>Edytowanie mieszkania</h2>
+
+<form action="#" th:action="'/flats/edit/' + ${flat.id}" method="post" th:object="${flat}" >
+    <input type="hidden" th:field="*{id}"/>
+    Numer: <br/><input type="text" th:field="*{number}" /> <br/><br/>
+    Powierzchnia: <br/><input type="text" th:field="*{area}" />m2 <br/><br/>
+    Id wspólnoty: <br/><input type="text" th:field="*{community.id}" /><br/><br/>
+    <input type="submit" value="Zapisz zmiany" />
+</form>
+<br/>
+<a href="/">Strona główna</a>
+</body>
+</html>

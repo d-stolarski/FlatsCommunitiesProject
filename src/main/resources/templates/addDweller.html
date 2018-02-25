@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dodawanie mieszkańca</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>Dodawanie mieszkańca</h2>
+
+<form action="#" th:action="@{/dwellers/add}" th:object="${dweller}" method="post">
+    Imię: <br/><input type="text" th:field="*{firstName}" /> <br/><br/>
+    Nazwisko: <br/><input type="text" th:field="*{lastName}" /> <br/><br/>
+    Płeć: <br/><input type="text" th:field="*{gender}" /><br/><br/>
+    Id mieszkania: <br/><input type="text" th:field="*{flat}" /><br/><br/>
+    <input type="submit" value="Dodaj" />
+</form>
+<br/>
+<a href="/">Strona główna</a>
+</body>
+</html>

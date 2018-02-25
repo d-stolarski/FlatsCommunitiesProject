@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista mieszkań</title>
+</head>
+<body>
+<h2>Lista mieszkań w bazie danych</h2><br/>
+<table border="2px">
+    <tr>
+        <th>Id mieszkania</th>
+        <th>Numer mieszkania</th>
+        <th>Powierzchnia(m2)</th>
+        <th>Id wspólnoty</th>
+        <th>Lista mieszkańców mieszkania</th>
+        <th>Edycja mieszkania</th>
+        <th>Usuń mieszkanie</th>
+    </tr>
+    <tr th:each="flat : ${flats}">
+        <td th:text="${flat.id}"></td>
+        <td th:text="${flat.number}"></td>
+        <td th:text="${flat.area}"></td>
+        <td th:text="${flat.community.id}"></td>
+        <td><a th:href="'/flats/flat-dwellers/' + ${flat.id}">(Mieszkańcy)</a></td>
+        <td><a th:href="'/flats/edit/' + ${flat.id}">(Edycja)</a></td>
+        <td><a th:href="'/flats/delete/' + ${flat.id}">(Usuń)</a></td>
+    </tr>
+    <tr>
+        <td><a th:href="'/flats/add/'">(Dodaj mieszkanie)</a></td>
+    </tr>
+</table>
+
+<br/>
+<a href="/">Strona główna</a>
+</body>
+</html>

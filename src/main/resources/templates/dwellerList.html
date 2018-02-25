@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista mieszkańców</title>
+</head>
+<body>
+<h2>Lista mieszkańców w bazie danych</h2><br/>
+<table border="2px">
+    <tr>
+        <th>Id mieszkańca</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Płeć</th>
+        <th>Id mieszkania</th>
+        <th>Edycja mieszkańca</th>
+        <th>Usuń mieszkańca</th>
+    </tr>
+    <tr th:each="dweller : ${dwellers}">
+        <td th:text="${dweller.id}"></td>
+        <td th:text="${dweller.firstName}"></td>
+        <td th:text="${dweller.lastName}"></td>
+        <td th:text="${dweller.gender}"></td>
+        <td th:text="${dweller.flat.id}"></td>
+        <td><a th:href="'/dwellers/edit/' + ${dweller.id}">(Edycja)</a></td>
+        <td><a th:href="'/dwellers/delete/' + ${dweller.id}">(Usuń)</a></td>
+    </tr>
+    <tr>
+        <td><a th:href="'/dwellers/add/'">(Dodaj mieszkańca)</a></td>
+    </tr>
+</table>
+<br/>
+<a href="/">Strona główna</a>
+
+</body>
+</html>

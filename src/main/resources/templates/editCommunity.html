@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Edycja wspólnoty</title>
+</head>
+<body>
+<h2>Edytowanie wspólnoty</h2>
+
+<form action="#" th:action="'/communities/edit/' + ${community.id}" method="post" th:object="${community}" >
+    <input type="hidden" th:field="*{id}"/>
+    Nazwa: <br/><input type="text" th:field="*{name}" /> <br/><br/>
+    Adres: <br/><input type="text" th:field="*{adress}" /> <br/><br/>
+    <input type="submit" value="Zapisz zmiany" />
+</form>
+<br/>
+<a href="/">Strona główna</a>
+</body>
+</html>

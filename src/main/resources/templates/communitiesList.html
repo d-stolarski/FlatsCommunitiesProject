@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista wspólnot</title>
+</head>
+<body>
+<h2>Lista wspólnot w bazie danych</h2><br/>
+<table border="2px">
+    <tr>
+        <th>Id wspólnoty</th>
+        <th>Nazwa wspólnoty</th>
+        <th>Adres</th>
+        <th>Powierzchnia mieszkań we wspólnocie</th>
+        <th>Edytuj wspólnotę</th>
+        <th>Usuń wspólnotę</th>
+        <th>Lista mieszkańców wspólnoty</th>
+    </tr>
+    <tr th:each="community : ${communities}">
+        <td th:text="${community.id}"></td>
+        <td th:text="${community.name}"></td>
+        <td th:text="${community.adress}"></td>
+        <td><a th:href="'/communities/flats-area/' + ${community.id}">(Powierzchnia)</a></td>
+        <td><a th:href="'/communities/edit/' + ${community.id}">(Edycja)</a></td>
+        <td><a th:href="'/communities/delete/' + ${community.id}">(Usuń)</a></td>
+
+    </tr>
+    <tr>
+        <td><a th:href="'/communities/add/'">(Dodaj wspólnotę)</a></td>
+    </tr>
+</table>
+
+<br/>
+<a href="/">Strona główna</a>
+</body>
+</html>
