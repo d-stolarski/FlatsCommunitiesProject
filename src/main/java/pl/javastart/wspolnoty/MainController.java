@@ -171,5 +171,12 @@ public class MainController {
         return "flatDwellersList";
     }
 
+    @GetMapping("/communities/dwellers-list/{id}")
+    public String getCommunityDwellers(@PathVariable Long id, Model model) {
+        model.addAttribute("flats", flatRepository.getCommunityFlats(id));
+        return "communityDwellersList";
+    }
+
+
 
 }

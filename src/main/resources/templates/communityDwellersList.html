@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista mieszkańców</title>
+</head>
+<body>
+<h2>Lista mieszkańców wspólnoty</h2><br/>
+<table border="2px">
+    <tr>
+        <th>Id mieszkańca</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Płeć</th>
+    </tr>
+    <tr th:each="flat : ${flats}">
+        <span th:each="dweller : ${flat.getDwellers()}">
+        <td th:text="${dweller.id}"></td>
+        <td th:text="${dweller.firstName}"></td>
+        <td th:text="${dweller.lastName}"></td>
+        <td th:text="${dweller.gender}"></td>
+    </span>
+</table>
+<br/>
+<a href="/">Strona główna</a>
+
+</body>
+</html>
