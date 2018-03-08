@@ -1,4 +1,4 @@
-package pl.javastart.wspolnoty;
+package pl.javastart.wspolnoty.model;
 
 import javax.persistence.*;
 

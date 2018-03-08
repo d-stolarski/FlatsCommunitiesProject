@@ -1,4 +1,7 @@
-package pl.javastart.wspolnoty;
+package pl.javastart.wspolnoty.model;
+
+import pl.javastart.wspolnoty.model.Community;
+import pl.javastart.wspolnoty.model.Dweller;
 
 import javax.persistence.*;
 import java.util.List;

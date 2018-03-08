@@ -1,11 +1,17 @@
-package pl.javastart.wspolnoty;
+package pl.javastart.wspolnoty.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.javastart.wspolnoty.model.Community;
+import pl.javastart.wspolnoty.model.Dweller;
+import pl.javastart.wspolnoty.model.Flat;
+import pl.javastart.wspolnoty.db.CommunityRepository;
+import pl.javastart.wspolnoty.db.DwellerRepository;
+import pl.javastart.wspolnoty.db.FlatRepository;
 
-import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -173,7 +179,19 @@ public class MainController {
 
     @GetMapping("/communities/dwellers-list/{id}")
     public String getCommunityDwellers(@PathVariable Long id, Model model) {
+        List<Dweller> dwellersList = new ArrayList<>();
+        List<Dweller> dwellers = new ArrayList<>();
+        List<Flat> flatList = flatRepository.getCommunityFlats(id);
+
+        for (Flat flat : flatList) {
+            dwellersList = dwellerRepository.getFlatDwellers(flat.getId());
+            for (Dweller dweller : dwellersList) {
+                dwellers.add(dweller);
+            }
+        }
+
         model.addAttribute("flats", flatRepository.getCommunityFlats(id));
+        model.addAttribute("dwellers", dwellers);
         return "communityDwellersList";
     }
 

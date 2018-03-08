@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <style>
+        body {
+            margin: 25px 25px;
+            background-color: beige;
+        }
+    </style>
     <meta charset="UTF-8"/>
     <title>Lista mieszkańców</title>
 </head>
@@ -13,13 +20,12 @@
         <th>Nazwisko</th>
         <th>Płeć</th>
     </tr>
-    <tr th:each="flat : ${flats}">
-        <span th:each="dweller : ${flat.getDwellers()}">
+    <tr th:each="dweller : ${dwellers}">
         <td th:text="${dweller.id}"></td>
         <td th:text="${dweller.firstName}"></td>
         <td th:text="${dweller.lastName}"></td>
         <td th:text="${dweller.gender}"></td>
-        </span></tr>
+        </tr>
 </table>
 <br/>
 <a href="/">Strona główna</a>
